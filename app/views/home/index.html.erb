@@ -4,47 +4,21 @@
 </div>
 
 <div class="container">
-
+	<% @questions.each do |q| %>
 	<div class="media">
 		<div class="media-left">
 			<a href="#">
-				<img class="media-object" src="http://www.gravatar.com/avatar/" alt="user avatar">
+				<img class="media-object" src="<%= q.gravatar %>" alt="user avatar">
 			</a>
 		</div>
 		<div class="media-body">
-			<h4 class="media-heading">user@email.com asked:</h4>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-		<div>
-			<a href="/questions/12" class="btn btn-success btn-xs">View Answers</a>
-		</div>
-		</div>
-
-		<div class="media">
-			<div class="media-left">
-				<a href="#">
-					<img class="media-object" src="http://www.gravatar.com/avatar/" alt="user avatar">
-				</a>
+			<h4 class="media-heading"><%= q.email %> asked:</h4>
+			<div><%= time_ago_in_words q.created_at %> ago</div>
+			<%= q.body %>
+			<div>
+				<a href="<%= question_path(q) %>" class="btn btn-success btn-xs">View Answers</a>
 			</div>
-			<div class="media-body">
-				<h4 class="media-heading">user@email.com asked:</h4>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-					<div>
-			<a href="/questions/12" class="btn btn-success btn-xs">View Answers</a>
 		</div>
-			</div>
-
-			<div class="media">
-				<div class="media-left">
-					<a href="#">
-						<img class="media-object" src="http://www.gravatar.com/avatar/" alt="user avatar">
-					</a>
-				</div>
-				<div class="media-body">
-					<h4 class="media-heading">user@email.com asked:</h4>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-						<div>
-			<a href="/questions/12" class="btn btn-success btn-xs">View Answers</a>
-		</div>
-				</div>
-
-			</div>
+	</div>
+	<% end %>
+</div>
